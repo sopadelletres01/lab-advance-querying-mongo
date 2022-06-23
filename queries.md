@@ -5,18 +5,32 @@
 ### 1. All the companies whose name match 'Babelgum'. Retrieve only their `name` field.
 
 <!-- Your Code Goes Here -->
+- **`query`**: /_{name:"Babelgum"}_/
+- **`projection`**: /_{name:1, _id:0}_/
+- **`sort`**: /_You should copy/paste the sort in here_/
+- **`skip`**: /_You should copy/paste the skip in here_/
+- **`limit`**: /_You should copy/paste the limit in here_/
 
 ### 2. All the companies that have more than 5000 employees. Limit the search to 20 companies and sort them by **number of employees**.
 
 <!-- Your Code Goes Here -->
+- **`query`**: /_{number_of_employees : { $gt: 5000}}_/
+- **`sort`**: /_{number_of_employees : 1}_/
+- **`limit`**: /_20_/
 
 ### 3. All the companies founded between 2000 and 2005, both years included. Retrieve only the `name` and `founded_year` fields.
 
 <!-- Your Code Goes Here -->
+- **`query`**: /_{founded_year : { $gte: 2000, $lte : 2005}}_/
+- **`projection`**: /_{name:1, founded_year:1, _id : 0}_/
 
 ### 4. All the companies that had a Valuation Amount of more than 100.000.000 and have been founded before 2010. Retrieve only the `name` and `ipo` fields.
 
 <!-- Your Code Goes Here -->
+- **`query`**: /_{$and : [{"ipo.valuation_amount":{$gt:100000000}},{founded_year:{$lt:2010}}]}_/
+- **`projection`**: /_{name:1,"ipo.valuation_amount":1,founded_year:1}_/
+
+
 
 ### 5. All the companies that have less than 1000 employees and have been founded before 2005. Order them by the number of employees and limit the search to 10 companies.
 
